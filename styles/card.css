@@ -1,0 +1,74 @@
+.card {
+    background-color: #1E5161;
+    width: 450px;
+    height: 700px;
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*  HEADLINE */
+.card h2 {
+    text-align: center;
+}
+
+/* BOOK IMAGE */
+.card .image-book {
+    display: flex;
+    justify-content: center;
+}
+
+.card .image-book img {
+    border-radius: 50%
+}
+
+/* BOOK INFORMATION SECTION */
+.card .book-information {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card .book-information .top-row {
+    padding-left: 20px;
+    padding-right: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card .book-information .top-row .likes-container {
+    display: flex;
+    align-items: center;
+}
+
+.card .book-information .top-row .likes-container img {
+    height: 24px;
+}
+
+.card .book-information .bottom-row {
+    padding-left: 20px;
+    padding-right: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+/* SUB CONTAINERS*/
+.card .sub-container {
+    width: 100%;
+    border-bottom: 3px solid #60b5d7;
+}
+
+.card .sub-container div {
+    display: flex;
+    justify-content: center;
+}
+
+.card .sub-container:last-child {
+    border: none;
+}

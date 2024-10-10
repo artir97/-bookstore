@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BookStore</title>
 
+    <link rel="stylesheet" href="./styles/card.css">
     <link rel="stylesheet" href="./style.css">
 
     <script src="./db.js"></script>
@@ -13,6 +14,61 @@
     <nav>
         <span>BOOKSTORE - get your book here</span>
     </nav>
-    
+    <div id="book-cards-container">
+        <div class="card">
+            <div class="sub-container">
+                <h2>Die Geheimnisse des Ozeans</h2>
+            </div>
+            <div class="sub-container image-book">
+                <img src="./assets/img/book.png" alt="image of a book">
+            </div>
+            <div class="sub-container book-information">
+                <div class="top-row">
+                    <div class="price">19,99 €</div>
+                    <div class="likes-container">
+                        <div>1250</div>
+                        <img src="./assets/icon/heart-red.png" alt="red heart">
+                    </div>
+                </div>
+                <div class="bottom-row">
+                    <div>
+                        <div>Author</div>
+                        <div>: Clara Meer</div>
+                    </div>
+                    <div>
+                        <div>Erscheinungsjahr</div>
+                        <div>: 2018</div>
+                    </div>
+                    <div>
+                        <div>Genre</div>
+                        <div>: Fantasy</div>
+                    </div>
+                </div>
+            </div>
+            <div class="sub-container">
+                <div>Kommentare:</div>
+                <div>
+                    <div>[Artir]</div>
+                    <div>: ttajföldkjsafjdkf</div>
+                </div>
+                <div>
+                    <div>[Artir]</div>
+                    <div>: ttajföldkjsafjdkf</div>
+                </div>
+                <div>
+                    <div>[Artir]</div>
+                    <div>: ttajföldkjsafjdkf</div>
+                </div>
+                <div>
+                    <div>[Artir]</div>
+                    <div>: ttajföldkjsafjdkf</div>
+                </div>
+            </div>
+            <div class="sub-container">
+                <input type="text" name="message-input" id="message-input" placeholder="Schreibe dein Kommentar">
+                <img src="./assets/icon/send-message.png" alt="send message arrow">
+            </div>
+        </div>
+    </div>
 </body>
 </html>
