@@ -1,5 +1,6 @@
 .card {
     background-color: #1E5161;
+    box-shadow: inset 0px 0px 35px 18px rgba(0, 0, 0, 0.29);
     width: 450px;
     height: 700px;
     border-radius: 20px;
@@ -18,15 +19,21 @@
 .card .image-book {
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 25%;
 }
 
 .card .image-book img {
-    border-radius: 50%
+    border-radius: 50%;
+    height: 80%;
 }
 
 /* BOOK INFORMATION SECTION */
 .card .book-information {
+    height: 25%;
+    
     display: flex;
+    justify-content: center;
     flex-direction: column;
     gap: 20px;
 }
@@ -40,9 +47,17 @@
     align-items: center;
 }
 
+.price {
+    font-size: 24px;
+    color: rgb(227, 73, 73);
+    font-weight: bold;
+}
+
 .card .book-information .top-row .likes-container {
+    width: 70px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .card .book-information .top-row .likes-container img {
@@ -52,10 +67,49 @@
 .card .book-information .bottom-row {
     padding-left: 20px;
     padding-right: 20px;
+    width: 300px;
 
     display: flex;
     flex-direction: column;
     align-items: start;
+    gap: 5px;
+}
+
+.book-information-data {
+    width: 100%;
+
+    display: flex;
+}
+
+.book-information-data div:first-child {
+    width: 70%;
+}
+
+/* COMMENTS CONTAINER*/
+
+.comments-container {
+    height: 28%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+.comment-headline {
+    padding-left: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.comment {
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.comment div {
+    width: 300px;
 }
 
 /* SUB CONTAINERS*/
@@ -64,11 +118,45 @@
     border-bottom: 3px solid #60b5d7;
 }
 
-.card .sub-container div {
-    display: flex;
-    justify-content: center;
-}
-
 .card .sub-container:last-child {
     border: none;
+}
+
+/* HEADLINE CONTAINER */
+.headline-container {
+    height: 12%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* SUB CONTAINER INPUT FIELD */
+.sub-container input {
+    padding: 5px;
+    width: 70%;
+}
+
+.write-comment-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    gap: 20px;
+}
+
+.write-comment-section input,
+.write-comment-section img {
+    height: 80%;
+}
+
+.write-comment-section input {
+    border-radius: 10px;
+    border: 1px solid #fff;
+    background-color: #1E5161;
+    color: #fff;
+}
+
+.write-comment-section input::placeholder {
+    color: #fff;
+    opacity: 0.5;
 }
