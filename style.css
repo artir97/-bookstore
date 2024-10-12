@@ -16,8 +16,12 @@ nav {
 }
 
 #book-cards-container {
-    height: calc(100vh - 80px);
+    min-height: calc(100vh - 80px);
     display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding-bottom: 40px;
+
     justify-content: center;
     align-items: center;
 }
