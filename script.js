@@ -24,6 +24,35 @@ function commentTemplate(i) {
     }
 }
 
+function likeAndUnlike(i) {
+    let heartContainer = document.getElementById('heart-container-' + i);
+    let likesContainer = document.getElementById('likes-' + i);
+
+    if(books[i].liked === false) {
+        books[i].liked = true;
+        books[i].likes +=1;
+    } else {
+        books[i].liked = false;
+        books[i].likes -=1;
+    }
+
+    heartContainer.innerHTML = getHeartIcon(i);
+    likesContainer.innerHTML = books[i].likes;
+}
+
+
+
+/**
+ *  TEMPLATES
+ */
+function getHeartIcon(i) {
+    if(books[i].liked === true) {
+        return `<img onclick="likeAndUnlike(${i})" src="./assets/icon/heart-red.png" alt="red heart">`
+    } else {
+        return `<img onclick="likeAndUnlike(${i})" src="./assets/icon/heart-white.png" alt="white heart">`
+    }
+}
+
 function getCommentsTemplate(i, j) {
     return (
         `
@@ -60,8 +89,10 @@ function bookCardTemplate(i) {
                 <div class="top-row">
                     <div class="price">${books[i].price.toFixed(2)} €</div>
                     <div class="likes-container">
-                        <div>${books[i].likes}</div>
-                        <img src="./assets/icon/heart-red.png" alt="red heart">
+                        <div id="likes-${i}">${books[i].likes}</div>
+                        <div id="heart-container-${i}">
+                           ${getHeartIcon(i)}
+                        </div>
                     </div>
                 </div>
                 <div class="bottom-row">
