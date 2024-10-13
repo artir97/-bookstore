@@ -134,8 +134,8 @@
     align-items: center;
 }
 
-#comments {
-    overflow-y:scroll;
+.comments {
+    overflow-y:auto;
 }
 
 /* SUB CONTAINER INPUT FIELD */

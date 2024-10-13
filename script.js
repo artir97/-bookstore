@@ -1,6 +1,7 @@
 let bookCardsContainer = document.getElementById('book-cards-container');
 
 function init() {
+    load();
     renderAllBooks();
 }
 
@@ -38,9 +39,50 @@ function likeAndUnlike(i) {
 
     heartContainer.innerHTML = getHeartIcon(i);
     likesContainer.innerHTML = books[i].likes;
+    save();
 }
 
+function sendComment(i) {
+    let commentsContainer = document.getElementById('comments-' + i);
+    let commentInput = document.getElementById('message-input-' + i);
 
+    if (commentInput.value.trim() !== '') {
+        let commentObj = {
+            comment: commentInput.value,
+            name: "NovelLover"
+        };
+        books[i].comments.push(commentObj);
+        commentInput.value = '';
+
+        commentsContainer.innerHTML += commentObj;
+        console.log(books[i].comments);
+    }
+    save();
+    renderComments(i)
+}
+
+function renderComments(i) {
+    let commentsContainer = document.getElementById('comments-' + i);
+    commentsContainer.innerHTML = '';
+
+    for (let j = 0; j < books[i].comments.length; j++) {
+        commentsContainer.innerHTML += getCommentsTemplate(i, j);
+    }
+}
+
+function save() {
+    localStorage.setItem('books', JSON.stringify(books));
+    console.log(books);
+}
+
+function load() {
+    let loadBooks = localStorage.getItem("books");
+    if (loadBooks) {
+        books = JSON.parse(loadBooks);
+    } else {
+        console.log('no books to load');
+    }
+}
 
 /**
  *  TEMPLATES
@@ -112,13 +154,13 @@ function bookCardTemplate(i) {
             </div>
             <div class="sub-container comments-container">
                 <div class="comment-headline">Kommentare:</div>
-                <div id="comments">
+                <div class="comments" id="comments-${i}">
                     ${commentTemplate(i)}
                 </div>
             </div>
             <div class="sub-container write-comment-section">
-                <input type="text" name="message-input" id="message-input" placeholder="Schreibe dein Kommentar">
-                <img src="./assets/icon/send-message.png" alt="send message arrow">
+                <input type="text" name="message-input" id="message-input-${i}" placeholder="Schreibe dein Kommentar">
+                <img onclick="sendComment(${i})" src="./assets/icon/send-message.png" alt="send message arrow">
             </div>
         </div>
         `
