@@ -6,11 +6,11 @@ function init() {
 }
 
 function renderAllBooks() {
-    bookCardsContainer.innerHTML = '';
-    let count = books.length;
-    for(let i = 0; i < count; i++) {
-        bookCardsContainer.innerHTML += bookCardTemplate(i);
+    let content = '';
+    for(let i = 0; i < books.length; i++) {
+        content += bookCardTemplate(i);
     }
+    bookCardsContainer.innerHTML = content;
 }
 
 function commentTemplate(i) {
@@ -25,7 +25,7 @@ function commentTemplate(i) {
     }
 }
 
-function likeAndUnlike(i) {
+function toggleLike(i) {
     let heartContainer = document.getElementById('heart-container-' + i);
     let likesContainer = document.getElementById('likes-' + i);
 
@@ -63,11 +63,12 @@ function sendComment(i) {
 
 function renderComments(i) {
     let commentsContainer = document.getElementById('comments-' + i);
-    commentsContainer.innerHTML = '';
+    let comments = '';
 
     for (let j = 0; j < books[i].comments.length; j++) {
-        commentsContainer.innerHTML += getCommentsTemplate(i, j);
+      comments += getCommentsTemplate(i, j);
     }
+    commentsContainer.innerHTML = comments;
 }
 
 function save() {
@@ -89,9 +90,9 @@ function load() {
  */
 function getHeartIcon(i) {
     if(books[i].liked === true) {
-        return `<img onclick="likeAndUnlike(${i})" src="./assets/icon/heart-red.png" alt="red heart">`
+        return `<img onclick="toggleLike(${i})" src="./assets/icon/heart-red.png" alt="red heart">`
     } else {
-        return `<img onclick="likeAndUnlike(${i})" src="./assets/icon/heart-white.png" alt="white heart">`
+        return `<img onclick="toggleLike(${i})" src="./assets/icon/heart-white.png" alt="white heart">`
     }
 }
 
